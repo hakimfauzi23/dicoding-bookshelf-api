@@ -3,14 +3,14 @@ const bookshelf = require('../../storage/bookshelf');
 const getBook = (request, h) => {
   const { bookId } = request.params;
 
-  const bookData = bookshelf.filter((book) => book.id === bookId);
+  const book = bookshelf.filter((e) => e.id === bookId)[0];
 
-  if (bookData.length > 0) {
+  if (book) {
     return h
       .response({
         status: 'success',
         data: {
-          bookData,
+          book,
         },
       })
       .code(200);
