@@ -5,7 +5,7 @@ const getBook = (request, h) => {
 
   const bookData = bookshelf.filter((book) => book.id === bookId);
 
-  if (bookData) {
+  if (bookData.length > 0) {
     return h
       .response({
         status: 'success',
